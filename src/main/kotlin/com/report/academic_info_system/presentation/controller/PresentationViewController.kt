@@ -1,8 +1,8 @@
 package com.report.academic_info_system.presentation.controller
 
-import ch.qos.logback.core.model.Model
 import com.report.academic_info_system.presentation.service.PresentationService
 import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
@@ -16,12 +16,19 @@ class PresentationViewController(
     }
 
     @GetMapping("/")
-    fun index(model: Model): String {
+    fun index(): String {
         return "presentation/index"
     }
 
-    @GetMapping("/projects")
-    fun projects(model: Model): String {
-        return "presentation/projects"
+    @GetMapping("/admin")
+    fun projects(): String {
+        return "presentation/admin"
+    }
+
+    @GetMapping("/lecture/list")
+    fun lectures(model: org.springframework.ui.Model): String {
+        val lectures = presentationService.getLectures()
+        model.addAttribute("list", lectures)
+        return "presentation/admin/lecture-list"
     }
 }

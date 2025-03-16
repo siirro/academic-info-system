@@ -1,5 +1,6 @@
 package com.report.academic_info_system.presentation.service
 
+import com.report.academic_info_system.presentation.dto.LectureDTO
 import com.report.academic_info_system.presentation.dto.StudentDTO
 import com.report.academic_info_system.presentation.repository.PresentationRepository
 import org.springframework.stereotype.Service
@@ -14,5 +15,11 @@ class PresentationService(
     fun getStudents(): List<StudentDTO> {
         val students = presentationRepository.getStudents()
         return students.map { StudentDTO(it) }
+    }
+
+    @Transactional(readOnly = true)
+    fun getLectures(): List<LectureDTO> {
+        val lectures = presentationRepository.getLectures()
+        return lectures.map { LectureDTO(it) }
     }
 }
