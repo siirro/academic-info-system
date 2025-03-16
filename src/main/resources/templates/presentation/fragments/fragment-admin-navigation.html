@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-white py-3" th:fragment="navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3" th:fragment="admin-navigation">
     <div class="container px-5">
-        <a class="navbar-brand" href="/"><span class="fw-bolder text-primary">Siirro</span></a>
+        <a class="navbar-brand" href="/"><span class="fw-bolder text-primary">ADMIN</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/info">학사정보</a></li>
-                <li class="nav-item"><a class="nav-link" href="/application">원서접수</a></li>
-                <li class="nav-item"><a class="nav-link" href="/admin">관리자</a></li>
+                <li class="nav-item"><a class="nav-link" href="/lecture/list">학생 목록</a></li>
+                <li class="nav-item"><a class="nav-link" href="/lecture/list">강의 목록</a></li>
+                <li class="nav-item"><a class="nav-link" href="/application/list">원서관리</a></li>
             </ul>
         </div>
     </div>

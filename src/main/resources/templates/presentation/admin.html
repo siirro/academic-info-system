@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" th:replace="~{presentation/layouts/layout-main :: layout(~{::#content})}">
+<main class="flex-shrink-0" id="content">
+    <!-- Navigation-->
+    <div th:replace="~{presentation/fragments/fragment-admin-navigation :: admin-navigation}"></div>
+    <!-- Header-->
+    <header class="py-5">
+        <div class="container px-5 pb-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-xxl-12">
+                    <!-- Header text content-->
+                    <div class="text-center text-xxl-start">
+                        <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">Kotlin &middot; Spring &middot; JPA</div></div>
+                        <div class="fs-3 fw-light text-muted">관리자 ADMIN 님 로그인</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About Section-->
+    <section class="bg-light py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xxl-8">
+                    <div class="text-center my-5">
+                        <h2 class="display-7 fw-bolder"><span class="text-gradient d-inline">바로가기</span></h2>
+                        <p class="mb-5"></p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-3">
+                            <a class="btn btn-info btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/">Home</a>
+                            <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/student/list">학생관리</a>
+                            <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/lecture/list">강의관리</a>
+                            <a class="btn btn-outline-dark btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/application/list">원서관리</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</html>

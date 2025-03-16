@@ -36,4 +36,7 @@ class Student(
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = [(CascadeType.PERSIST)])
     var stdDepts: MutableList<StudentDepartment> = mutableListOf()
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = [(CascadeType.PERSIST)])
+    var stdLects: MutableList<StudentLecture> = mutableListOf()
 }
