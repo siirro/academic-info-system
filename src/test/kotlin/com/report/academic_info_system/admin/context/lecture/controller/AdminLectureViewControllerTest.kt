@@ -1,13 +1,12 @@
 package com.report.academic_info_system.admin.context.lecture.controller
 
-import com.report.academic_info_system.admin.context.lecture.service.AdminLectureViewService
+import com.report.academic_info_system.admin.context.lecture.service.AdminLectureService
 import com.report.academic_info_system.admin.data.TableDTO
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.Mockito.doThrow
 import org.mockito.junit.jupiter.MockitoExtension
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
@@ -18,7 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders
 class AdminLectureViewControllerTest {
 
     @Mock
-    private lateinit var adminLectureViewService: AdminLectureViewService  // ✅ `@MockBean` 대신 `@Mock` 사용
+    private lateinit var adminLectureService: AdminLectureService  // ✅ `@MockBean` 대신 `@Mock` 사용
 
     @InjectMocks
     private lateinit var adminLectureViewController: AdminLectureViewController  // ✅ 컨트롤러에 Mock 주입
@@ -38,7 +37,7 @@ class AdminLectureViewControllerTest {
                 listOf("value3", "value4")
             )
         )
-        Mockito.`when`(adminLectureViewService.getLectureTable()).thenReturn(mockTable)
+        Mockito.`when`(adminLectureService.getLectureTable()).thenReturn(mockTable)
 
         // when & then
         mockMvc.perform(get("/admin/lecture"))
@@ -56,7 +55,7 @@ class AdminLectureViewControllerTest {
                 listOf("2", "인공지능")
             )
         )
-        Mockito.`when`(adminLectureViewService.getLectureTable()).thenReturn(mockTable)
+        Mockito.`when`(adminLectureService.getLectureTable()).thenReturn(mockTable)
 
         // when & then
         mockMvc.perform(get("/admin/lecture"))
@@ -79,7 +78,7 @@ class AdminLectureViewControllerTest {
                 listOf("value3", "value4")
             )
         )
-        Mockito.`when`(adminLectureViewService.getLectureTable()).thenReturn(mockTable)
+        Mockito.`when`(adminLectureService.getLectureTable()).thenReturn(mockTable)
 
         // when & then
         mockMvc.perform(get("/admin/lecture"))

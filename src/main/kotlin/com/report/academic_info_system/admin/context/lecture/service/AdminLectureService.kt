@@ -6,7 +6,7 @@ import com.report.academic_info_system.domain.repository.LectureRepository
 import org.springframework.stereotype.Service
 
 @Service
-class AdminLectureViewService(
+class AdminLectureService(
     private val lectureRepository: LectureRepository
 ) {
     fun getLectureTable(): TableDTO {

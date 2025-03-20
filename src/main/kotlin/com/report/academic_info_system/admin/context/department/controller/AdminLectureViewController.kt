@@ -1,6 +1,6 @@
-package com.report.academic_info_system.admin.context.lecture.controller
+package com.report.academic_info_system.admin.context.department.controller
 
-import com.report.academic_info_system.admin.context.lecture.service.AdminLectureService
+import com.report.academic_info_system.admin.context.department.service.AdminDepartmentService
 import com.report.academic_info_system.admin.data.FormElementDTO
 import com.report.academic_info_system.admin.data.TextFormElementDTO
 import org.springframework.stereotype.Controller
@@ -8,25 +8,24 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
-@RequestMapping("/admin/lecture")
-class AdminLectureViewController(private val adminLectureService: AdminLectureService) {
+@RequestMapping("/admin/department")
+class AdminDepartmentViewController(private val adminDepartmentService: AdminDepartmentService) {
     @GetMapping
-    fun lecture(model: org.springframework.ui.Model): String {
+    fun department(model: org.springframework.ui.Model): String {
         val formElements = listOf<FormElementDTO>(
-            TextFormElementDTO("lectNm", 4),
-            TextFormElementDTO("lectRoom", 4),
-            TextFormElementDTO("lectDay", 2),
-            TextFormElementDTO("lectHour", 2)
+            TextFormElementDTO("deptNm", 5),
+            TextFormElementDTO("deptLoca", 5),
+            TextFormElementDTO("deptCapa", 2)
         )
 
         model.addAttribute("formElements", formElements)
 
-        val table = adminLectureService.getLectureTable()
+        val table = adminDepartmentService.getDepartmentTable()
         model.addAttribute("table", table)
         model.addAttribute("department", null)
 
         val pageAttributes = mutableMapOf<String, Any>(
-            Pair("menuName", "Lecture"),
+            Pair("menuName", "Department"),
             Pair("pageName", table.name),
             Pair("editable", true),
             Pair("deletable", true),

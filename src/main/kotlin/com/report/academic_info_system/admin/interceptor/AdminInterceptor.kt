@@ -14,5 +14,29 @@ class AdminInterceptor : HandlerInterceptor {
         handler: Any,
         modelAndView: ModelAndView?
     ) {
+        val menus = listOf<MenuDTO>(
+            MenuDTO(
+                name = "Admin Index",
+                pages = listOf<PageDTO>(
+                    PageDTO(name = "Introduction", url = "/admin/introduction"),
+                    PageDTO(name = "Link", url = "/admin/link")
+                )
+            ),
+            MenuDTO(
+                name = "Lecture",
+                pages = listOf<PageDTO>(
+                    PageDTO(name = "lecture", url = "/admin/lecture")
+                )
+            ),
+            MenuDTO(
+                name = "Student",
+                pages = listOf<PageDTO>(
+                    PageDTO(name = "Student", url = "/admin/student"),
+                    PageDTO(name = "StudentDeparture", url = "/admin/student/departure")
+                )
+            ),
+        )
+
+        modelAndView?.model?.put("menus", menus)
     }
 }

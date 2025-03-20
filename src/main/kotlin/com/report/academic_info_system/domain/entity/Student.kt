@@ -1,7 +1,6 @@
 package com.report.academic_info_system.domain.entity
 
 import jakarta.persistence.*
-import java.time.LocalDate
 
 @Entity
 class Student(
@@ -10,8 +9,8 @@ class Student(
     stdResideNo: String,
     stdPhone: String,
     stdYear: Int,
-    stdStatus: Int,
-    stdEntryYmd: LocalDate?
+    stdStatus: String,
+    stdEntryYmd: String?
 ) : BaseEntity() {
 
     @Id
@@ -30,13 +29,31 @@ class Student(
 
     var stdYear: Int = stdYear
 
-    var stdStatus: Int = stdStatus
+    var stdStatus: String = stdStatus
 
-    var stdEntryYmd: LocalDate? = stdEntryYmd
+    var stdEntryYmd: String? = stdEntryYmd
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = [(CascadeType.PERSIST)])
     var stdDepts: MutableList<StudentDepartment> = mutableListOf()
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = [(CascadeType.PERSIST)])
     var stdLects: MutableList<StudentLecture> = mutableListOf()
+
+    fun update(
+        password: String?,
+        stdNm: String,
+        stdResideNo: String,
+        stdPhone: String,
+        stdYear: Int,
+        stdStatus: String,
+        stdEntryYmd: String?
+    ) {
+        this.password = password
+        this.stdNm = stdNm
+        this.stdResideNo = stdResideNo
+        this.stdPhone = stdPhone
+        this.stdYear = stdYear
+        this.stdStatus = stdStatus
+        this.stdEntryYmd = stdEntryYmd
+    }
 }
