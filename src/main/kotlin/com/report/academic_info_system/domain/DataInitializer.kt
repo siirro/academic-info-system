@@ -69,8 +69,8 @@ class DataInitializer(
             stdResideNo = "980512-1546113",
             stdPhone = "01012345678",
             stdYear = 3,
-            stdStatus = 0,
-            stdEntryYmd = LocalDate.now(),
+            stdStatus = "승인대기",
+            stdEntryYmd = LocalDate.now().toString(),
         )
         student1.stdDepts.addAll(
             mutableListOf(
@@ -92,8 +92,8 @@ class DataInitializer(
             stdResideNo = "010613-3113133",
             stdPhone = "01012345678",
             stdYear = 1,
-            stdStatus = 0,
-            stdEntryYmd = LocalDate.now(),
+            stdStatus = "재학",
+            stdEntryYmd = LocalDate.now().toString(),
         )
         student2.stdDepts.addAll(
             mutableListOf(

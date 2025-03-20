@@ -49,4 +49,9 @@ class AdminStudentService(
             stdEntryYmd = form.stdEntryYmd
         )
     }
+
+    @Transactional
+    fun delete(id: Long) {
+        studentRepository.deleteById(id)
+    }
 }

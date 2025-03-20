@@ -1,8 +1,6 @@
 package com.report.academic_info_system.presentation.dto
 
-import com.report.academic_info_system.domain.entity.Department
 import com.report.academic_info_system.domain.entity.Student
-import java.time.LocalDate
 
 class StudentDTO(
     val password: String?,
@@ -10,8 +8,8 @@ class StudentDTO(
     val stdResideNo: String,
     val stdPhone: String,
     val stdYear: Int,
-    val stdStatus: Int,
-    val stdEntryYmd: LocalDate?,
+    val stdStatus: String,
+    val stdEntryYmd: String?,
     val stdDepts: List<DepartmentDTO>
 ) {
     constructor(student: Student) : this(

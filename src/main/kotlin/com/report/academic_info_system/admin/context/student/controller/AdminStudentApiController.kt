@@ -23,4 +23,10 @@ class AdminStudentApiController(
         adminStudentService.update(id, form)
         return ApiResponse.successUpdate()
     }
+
+    @DeleteMapping("/{id}")
+    fun deleteStudentDepartment(@PathVariable id: Long): ResponseEntity<Any> {
+        adminStudentService.delete(id)
+        return ApiResponse.successDelete()
+    }
 }
