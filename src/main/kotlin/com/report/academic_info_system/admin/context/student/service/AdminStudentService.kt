@@ -29,7 +29,7 @@ class AdminStudentService(
         return TableDTO.from(classInfo, entities)
     }
 
-    @Transactional
+    // @Transactional
     fun save(form: StudentForm) {
         val student = form.toEntity()
         studentRepository.save(student)
@@ -52,6 +52,8 @@ class AdminStudentService(
 
     @Transactional
     fun delete(id: Long) {
+        val student = studentRepository.findById(id)
+            .orElseThrow { throw AdminBadRequestException("ID ${id}에 해당하는 데이터가 없습니다.") }
         studentRepository.deleteById(id)
     }
 }

@@ -10,7 +10,6 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.jupiter.MockitoExtension
-import java.time.LocalDate
 
 @ExtendWith(MockitoExtension::class)
 class PresentationServiceTest {
@@ -33,8 +32,8 @@ class PresentationServiceTest {
                 stdResideNo = "${i}",
                 stdPhone = "${i}",
                 stdYear = i,
-                stdStatus = i,
-                stdEntryYmd = LocalDate.now()
+                stdStatus = "${i}",
+                stdEntryYmd = ""
             )
             students.add(student)
         }

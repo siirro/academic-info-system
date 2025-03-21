@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
-import java.time.LocalDate
 
 @DataJpaTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -25,8 +24,8 @@ class StudentRepositoryTest(
             stdResideNo = "${n}",
             stdPhone = "${n}",
             stdYear = n,
-            stdStatus = n,
-            stdEntryYmd = LocalDate.now()
+            stdStatus = "${n}",
+            stdEntryYmd = ""
         )
 
         val depts = departmentRepository.findAll()

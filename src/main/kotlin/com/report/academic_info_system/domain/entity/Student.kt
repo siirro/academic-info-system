@@ -3,6 +3,11 @@ package com.report.academic_info_system.domain.entity
 import jakarta.persistence.*
 
 @Entity
+@Table(
+    uniqueConstraints = [
+        UniqueConstraint(columnNames = ["stdResideNo"])
+    ]
+)
 class Student(
     password: String?,
     stdNm: String,

@@ -12,7 +12,7 @@ data class StudentForm(
     val stdResideNo: String,
     val stdPhone: String,
     @field:Min(value = 1, message = "최소값은 1입니다.")
-    @field:Max(value = 12, message = "최대값은 4입니다.")
+    @field:Max(value = 4, message = "최대값은 4입니다.")
     val stdYear: Int,
     val stdStatus: String,
     val stdEntryYmd: String

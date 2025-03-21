@@ -65,7 +65,7 @@ class DataInitializer(
 
         val student1 = Student(
             password = "1234",
-            stdNm = "김준서",
+            stdNm = "김이돌",
             stdResideNo = "980512-1546113",
             stdPhone = "01012345678",
             stdYear = 3,
@@ -88,7 +88,7 @@ class DataInitializer(
 
         val student2 = Student(
             password = "1234",
-            stdNm = "성한빈",
+            stdNm = "김이빈",
             stdResideNo = "010613-3113133",
             stdPhone = "01012345678",
             stdYear = 1,
@@ -108,6 +108,16 @@ class DataInitializer(
             )
         )
 
-        studentRepository.saveAll(mutableListOf(student1, student2))
+        val student3 = Student(
+            password = "1234",
+            stdNm = "김사빈",
+            stdResideNo = "010613-3112133",
+            stdPhone = "01012345678",
+            stdYear = 1,
+            stdStatus = "재학",
+            stdEntryYmd = LocalDate.now().toString(),
+        )
+
+        studentRepository.saveAll(mutableListOf(student1, student2, student3))
     }
 }

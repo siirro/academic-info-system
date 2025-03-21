@@ -56,7 +56,7 @@ class AdminStudentDepartmentService(
     fun save(form: StudentDepartmentForm) {
         val studentId = parseId(form.student)
         val departmentId = parseId(form.department)
-        studentDepartmentRepository.findByStdIdAndDeptId(studentId, departmentId)
+        studentDepartmentRepository.findByStudent_IdAndDepartment_Id(studentId, departmentId)
             .ifPresent { throw AdminBadRequestException("이미 매핑된 데이터입니다.") }
         val student = studentRepository.findById(studentId)
             .orElseThrow { throw AdminBadRequestException("ID ${studentId}에 해당하는 데이터가 없습니다.") }

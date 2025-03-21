@@ -7,15 +7,15 @@ class ApiResponse<T>(status: HttpStatus) : ResponseEntity<T>(status) {
 
     companion object {
         fun successCreate(): ResponseEntity<Any> {
-            return ResponseEntity.ok("데이터가 저장되었습니다.")
+            return ok("DATA CREATE FINISH")
         }
 
         fun successUpdate(): ResponseEntity<Any> {
-            return ResponseEntity.ok("데이터가 수정되었습니다.")
+            return ok("DATA UPDATE FINISH")
         }
 
         fun successDelete(): ResponseEntity<Any> {
-            return ResponseEntity.ok("데이터가 삭제되었습니다.")
+            return ok("DATA DELETE FINISH")
         }
     }
 

@@ -2,6 +2,9 @@ package com.report.academic_info_system.admin.advice
 
 import com.report.academic_info_system.admin.exception.AdminException
 import org.slf4j.LoggerFactory
+import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.dao.InvalidDataAccessApiUsageException
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -24,6 +27,16 @@ class AdminApiControllerAdvice {
         val message = "[${fieldError.field} ${fieldError.defaultMessage}]"
 
         return ResponseEntity.badRequest().body(message)
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException::class)
+    fun handleConstraintViolation(ex: DataIntegrityViolationException): ResponseEntity<String> {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("중복된 데이터 입니다.")
+    }
+
+    @ExceptionHandler(InvalidDataAccessApiUsageException::class)
+    fun handleInvalidDataAccessApiUsageException(ex: InvalidDataAccessApiUsageException): ResponseEntity<String> {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("하위 데이터를 삭제해주세요.")
     }
 
     @ExceptionHandler
